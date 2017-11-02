@@ -6,7 +6,6 @@ function bubbleSort(arr) {
   var lastCheck = arr.length - 1;
   
   while (lastCheck >= 0) {
-      debugger
       
     for (var i = 0; i < arr.length; i++) {
     
