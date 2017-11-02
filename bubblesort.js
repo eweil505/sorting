@@ -2,15 +2,15 @@ function bubbleSort(arr) {
   var lastCheck = arr.length - 1;
 
   while (lastCheck >= 0) {
-    for (var i = 0; i < arr.length; i++) {
+    for (var i = 0; i < arr.length--; i++) {
       var l1 = arr[i];
       var l2 = arr[i + 1];
 
       if (l1 > l2) {
-        swap(l1, l2);
+        var swapped = swap(l1, l2, arr);
       }
     }
-
+    arr = swapped;
     lastCheck--;
   }
 
@@ -22,6 +22,28 @@ function bubbleSort(arr) {
   // we end when the second index is the same as the first index isn;t a valid array index valye (-1)
 }
 
-function swap(num1, num2) {
-
+function swap2(idx1, idx2, arr) {
+    var temp = arr[idx1];
+    arr[idx1] = arr[idx2];
+    arr[idx2] = temp;
+    return arr;
 }
+
+function swap(num1, num2, arr) { //4, 2
+    var swappedArray = [];
+    for (var i = 0; i < arr.length; i++) { //
+        if (i === arr.indexOf(num1)) { 
+            swappedArr.push(arr.indexOf(num2)); //[2]
+        } else if (i === arr.indexOf(num2)) { //[2, 4]
+            swappedArr.push(arr.indexOf(num1))
+        } else {
+            swappedArr.push(arr[i]); //[2, 4, 10, 1, 5]
+        }
+
+    }
+
+    return swappedArray; //[2,4,10,1,5]
+}
+
+//produce new array in which everything is the same except the two numbers are swapped
+//array at l1's index is now array at l2's index and vice-versa 
