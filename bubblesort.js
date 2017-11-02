@@ -1,18 +1,29 @@
 function bubbleSort(arr) {
-  var lastCheck = arr.length - 1;
-
-  while (lastCheck >= 0) {
-    for (var i = 0; i < arr.length--; i++) {
-      var l1 = arr[i];
-      var l2 = arr[i + 1];
-
-      if (l1 > l2) {
-        var swapped = swap(l1, l2, arr);
-      }
+    if (arr.length <= 1) {
+        return arr;
     }
-    arr = swapped;
+ 
+  var lastCheck = arr.length - 1;
+  
+  while (lastCheck >= 0) {
+      debugger
+      
+    for (var i = 0; i < arr.length; i++) {
+    
+      var l1 = i;
+      var l2 = i + 1;
+  
+      if (arr[i] > arr[i+1]) {
+        var swapped = swap(l1, l2, arr);
+       
+      }
+      arr = swapped;
+    }
+   
     lastCheck--;
   }
+
+  return arr;
 
 
   // going through the array and checking the two numbers and i and i + 1
@@ -22,14 +33,14 @@ function bubbleSort(arr) {
   // we end when the second index is the same as the first index isn;t a valid array index valye (-1)
 }
 
-function swap2(idx1, idx2, arr) {
+function swap(idx1, idx2, arr) {
     var temp = arr[idx1];
     arr[idx1] = arr[idx2];
     arr[idx2] = temp;
     return arr;
 }
 
-function swap(num1, num2, arr) { //4, 2
+function swap2(num1, num2, arr) { //4, 2
     var swappedArray = [];
     for (var i = 0; i < arr.length; i++) { //
         if (i === arr.indexOf(num1)) { 
